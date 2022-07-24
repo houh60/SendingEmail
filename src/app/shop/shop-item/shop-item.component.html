@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-xs-12">
+        <img [src]="picture.image" alt="{{ picture.pictureName }}" class="img-responsive" style="max-height: 500px;">
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <h1>{{ picture.pictureName }}</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <h1>Price: {{ picture.price | currency }}</h1>
+    </div>
+</div>
+<div class="row" *ngIf="picture">
+    <div class="col-xs-12">
+        <button class="btn btn-primary" (click)="addToCart()">Add to Cart</button>
+    </div>
+</div>

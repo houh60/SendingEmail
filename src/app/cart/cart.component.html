@@ -1,0 +1,29 @@
+<div *ngFor="let item of kindNum; let i = index">
+    <div class="row">
+        <div class="col-sm-4">
+            <a style="cursor: pointer;" [routerLink]="[i]" routerLinkActive="active" class="list-group-item clearfix">
+                <div class="pull-left">
+                    <h4 class="list-group-item-heading">{{ item.picture.pictureName }}</h4>
+                    <p class="list-group-item-text">Price: {{ item.picture.price | currency }}</p>
+                </div>
+                <span class="pull-right">
+                    <img [src]="item.picture.image" alt="{{ item.picture.pictureName }}" class="img-responsive"
+                        style="max-height: 50px;">
+                </span>
+            </a>
+        </div>
+        <div class="col-sm-2" style="margin-right: 30px; width: fit-content;">
+            <input type="number" [value]="item.num" [id]="i">
+        </div>
+        <div class="col-sm-4">
+            <button class="btn btn-success" type="submit" (click)="onUpdate(item, i)">Update</button>
+            <button class="btn btn-danger" type="button" (click)="onDelete(item)">Delete</button>
+        </div>
+    </div>
+</div>
+<div class="row" *ngIf="total !== 0">
+    <h4>Total: {{total | currency}}</h4>
+</div>
+<div class="row" *ngIf="total === 0">
+    <h4>Your cart is empty.</h4>
+</div>

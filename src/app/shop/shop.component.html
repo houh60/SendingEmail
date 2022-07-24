@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-md-4">
+        <div *ngFor="let item of items; let i = index">
+            <a style="cursor: pointer;" [routerLink]="[i]" routerLinkActive="active"
+                class="list-group-item clearfix">
+                <div class="pull-left">
+                    <h4 class="list-group-item-heading">{{ item.pictureName }}</h4>
+                    <p class="list-group-item-text">Price: {{ item.price | currency }}</p>
+                </div>
+                <span class="pull-right">
+                    <img [src]="item.image" alt="{{ item.pictureName }}" class="img-responsive"
+                        style="max-height: 50px;">
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <router-outlet></router-outlet>
+    </div>
+</div>

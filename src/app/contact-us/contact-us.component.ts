@@ -47,8 +47,8 @@ export class ContactUsComponent implements OnInit {
 
     public sendEmail(e: Event) {
 
-        let mailBody = (<HTMLElement>document.getElementById('mailBody')).innerHTML;
-        window.location.href = "mailto:" + this.sendToEmail + "?subject=hii&body=" + mailBody;
+        // let mailBody = (<HTMLElement>document.getElementById('mailBody')).innerHTML;
+        // window.location.href = "mailto:" + this.sendToEmail + "?subject=hii&body=" + mailBody;
 
         (<HTMLInputElement>document.getElementById("to_email")).value = this.sendToEmail;
         (<HTMLInputElement>document.getElementById("email_id")).value = this.sendFromEmail;

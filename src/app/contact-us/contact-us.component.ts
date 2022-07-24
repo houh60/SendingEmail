@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 import { KindAndNum } from '../shared/kindAndNum';
+import { Picture } from '../shared/picture';
 import { ShoppingService } from '../shop/shopping.service';
 
 
@@ -22,17 +23,32 @@ export class ContactUsComponent implements OnInit {
     sendFromName = 'William';
 
     kindAndNum: KindAndNum[] = [];
+    cartItems: Picture[] = [];
+
+    total: number = 0;
 
     constructor(
         private shoppingService: ShoppingService
     ) {}
 
     ngOnInit(): void {
+        this.shoppingService.cartItemChanged.subscribe(cartItems => this.cartItems = cartItems);
         this.kindAndNum = this.shoppingService.getKindAndNum();
         this.shoppingService.kindAndNumChanged.subscribe(kn => this.kindAndNum = kn);
     }
 
+    getTotal() {
+        this.total = 0;
+        for(let cartItem of this.cartItems) {
+            this.total += cartItem.price;
+        }
+        return this.total;
+    }
+
     public sendEmail(e: Event) {
+
+        let mailBody = (<HTMLElement>document.getElementById('mailBody')).innerHTML;
+        window.location.href = "mailto:" + this.sendToEmail + "?subject=hii&body=" + mailBody;
 
         (<HTMLInputElement>document.getElementById("to_email")).value = this.sendToEmail;
         (<HTMLInputElement>document.getElementById("email_id")).value = this.sendFromEmail;

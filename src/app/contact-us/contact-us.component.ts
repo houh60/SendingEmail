@@ -14,9 +14,9 @@ import { ShoppingService } from '../shop/shopping.service';
 export class ContactUsComponent implements OnInit {
 
 
-    serviceID = 'service_7jmeevb';
-    templateID = 'template_koqt8sd';
-    publicKey = 'AsIKZyHHsL3996ON6';
+    serviceID = 'serviceID';
+    templateID = 'templateID';
+    publicKey = 'publicKey';
 
     sendFromEmail = 'williamhou38@yahoo.com';
     sendToEmail = 'houh602students.rowan.edu@gmail.com';

@@ -19,13 +19,10 @@ export class ShopItemComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
-        this.route.params
-            .subscribe(
-                (params: Params) => {
-                    this.id = +params['id'];
-                    this.picture = this.shoppingService.getItem(this.id);
-                }
-            );
+        this.route.params.subscribe((params: Params) => {
+            this.id = +params['id'];
+            this.picture = this.shoppingService.getItem(this.id);
+        });
     }
 
     addToCart() {

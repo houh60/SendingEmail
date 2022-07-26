@@ -24,6 +24,7 @@ export class ContactUsComponent implements OnInit {
 
     kindAndNum: KindAndNum[] = [];
     cartItems: Picture[] = [];
+    cartItemNum: number = 0
 
     total: number = 0;
 
@@ -35,6 +36,9 @@ export class ContactUsComponent implements OnInit {
         this.shoppingService.cartItemChanged.subscribe(cartItems => this.cartItems = cartItems);
         this.kindAndNum = this.shoppingService.getKindAndNum();
         this.shoppingService.kindAndNumChanged.subscribe(kn => this.kindAndNum = kn);
+        this.shoppingService.cartItemChanged.subscribe(cartItem => {
+            this.cartItemNum = cartItem.length;
+        });
     }
 
     getTotal() {

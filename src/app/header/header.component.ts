@@ -17,6 +17,5 @@ export class HeaderComponent implements OnInit {
         this.shoppingService.cartItemChanged.subscribe(cartItem => {
             this.cartItemNum = cartItem.length;
         });
-
     }
 }

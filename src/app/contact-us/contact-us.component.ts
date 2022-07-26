@@ -14,12 +14,12 @@ import { ShoppingService } from '../shop/shopping.service';
 export class ContactUsComponent implements OnInit {
 
 
-    serviceID = 'serviceID';
-    templateID = 'templateID';
-    publicKey = 'publicKey';
+    serviceID = 'service_7jmeevb';
+    templateID = 'template_koqt8sd';
+    publicKey = 'AsIKZyHHsL3996ON6';
 
     sendFromEmail = 'williamhou38@yahoo.com';
-    sendToEmail = 'houh602students.rowan.edu@gmail.com';
+    sendToEmail = 'houh602students.rowan.edu@gmail.com'; // please use your own email
     sendFromName = 'William';
 
     kindAndNum: KindAndNum[] = [];
@@ -46,9 +46,6 @@ export class ContactUsComponent implements OnInit {
     }
 
     public sendEmail(e: Event) {
-
-        // let mailBody = (<HTMLElement>document.getElementById('mailBody')).innerHTML;
-        // window.location.href = "mailto:" + this.sendToEmail + "?subject=hii&body=" + mailBody;
 
         (<HTMLInputElement>document.getElementById("to_email")).value = this.sendToEmail;
         (<HTMLInputElement>document.getElementById("email_id")).value = this.sendFromEmail;

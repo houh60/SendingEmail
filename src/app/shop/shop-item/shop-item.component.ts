@@ -21,6 +21,7 @@ export class ShopItemComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
+        this.cartItemNum = this.shoppingService.getItemsAddedToCart().length;
         this.route.params.subscribe((params: Params) => {
             this.id = +params['id'];
             this.picture = this.shoppingService.getItem(this.id);
